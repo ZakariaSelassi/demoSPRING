@@ -14,18 +14,22 @@ public class AnimesDTO {
     @JsonIgnore
     private Author author;
 
-    private String AuthorName;
+    private String authorName;
 
     private Set<Category> categories;
     private List<SeasonsDTO> seasons;
-    private List<RatingDTO> Ratings;
+    private List<RatingDTO> ratings;
 
     public AnimesDTO(){}
 
-    public AnimesDTO(int idAnimes, String animeName, Author author) {
+    public AnimesDTO(int idAnimes, String animeName, Author author, String authorName, Set<Category> categories, List<SeasonsDTO> seasons, List<RatingDTO> ratings) {
         this.idAnimes = idAnimes;
         this.animeName = animeName;
         this.author = author;
+        this.authorName = authorName;
+        this.categories = categories;
+        this.seasons = seasons;
+        this.ratings = ratings;
     }
 
     public int getIdAnimes() {
@@ -53,11 +57,11 @@ public class AnimesDTO {
     }
 
     public String getAuthorName() {
-        return AuthorName;
+        return authorName;
     }
 
     public void setAuthorName(String authorName) {
-        AuthorName = authorName;
+        this.authorName = authorName;
     }
 
     public Set<Category> getCategories() {
@@ -77,10 +81,10 @@ public class AnimesDTO {
     }
 
     public List<RatingDTO> getRatings() {
-        return Ratings;
+        return ratings;
     }
 
     public void setRatings(List<RatingDTO> ratings) {
-        Ratings = ratings;
+        this.ratings = ratings;
     }
 }

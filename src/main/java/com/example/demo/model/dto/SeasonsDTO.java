@@ -13,9 +13,10 @@ public class SeasonsDTO {
 
     public SeasonsDTO(){}
 
-    public SeasonsDTO(int idSeasons, int seasonsNumber) {
+    public SeasonsDTO(int idSeasons, int seasonsNumber, List<EpisodesDTO> episodes) {
         this.idSeasons = idSeasons;
         this.seasonsNumber = seasonsNumber;
+        this.episodes = episodes;
     }
 
     public int getIdSeasons() {
