@@ -61,6 +61,15 @@ public class Animes {
         this.idAnimes = idAnimes;
     }
 
+
+    public String getAnimeName() {
+        return animeName;
+    }
+
+    public void setAnimeName(String animeName) {
+        this.animeName = animeName;
+    }
+
     public Instant getDateBegin() {
         return dateBegin;
     }

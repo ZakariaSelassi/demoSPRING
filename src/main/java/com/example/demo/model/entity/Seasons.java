@@ -1,5 +1,7 @@
 package com.example.demo.model.entity;
 
+import org.springframework.beans.factory.annotation.Value;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -13,6 +15,7 @@ public class Seasons {
     private int idSeasons;
 
     @Column(name="seasonsNumber")
+    @Value("${some.key:1}")
     private int seasonsNumber;
 
     @ManyToOne()

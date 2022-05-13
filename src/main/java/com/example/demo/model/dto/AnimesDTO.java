@@ -4,6 +4,8 @@ import com.example.demo.model.entity.Author;
 import com.example.demo.model.enumFolder.Category;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.persistence.Column;
+import java.time.Instant;
 import java.util.List;
 import java.util.Set;
 
@@ -11,8 +13,12 @@ public class AnimesDTO {
     private int idAnimes;
     private String animeName;
 
+    private Instant dateBegin;
+
+    private Instant dateEnd;
+
     @JsonIgnore
-    private Author author;
+    private AuthorDTO author;
 
     private String authorName;
 
@@ -22,9 +28,11 @@ public class AnimesDTO {
 
     public AnimesDTO(){}
 
-    public AnimesDTO(int idAnimes, String animeName, Author author, String authorName, Set<Category> categories, List<SeasonsDTO> seasons, List<RatingDTO> ratings) {
+    public AnimesDTO(int idAnimes, String animeName, Instant dateBegin, Instant dateEnd, AuthorDTO author, String authorName, Set<Category> categories, List<SeasonsDTO> seasons, List<RatingDTO> ratings) {
         this.idAnimes = idAnimes;
         this.animeName = animeName;
+        this.dateBegin = dateBegin;
+        this.dateEnd = dateEnd;
         this.author = author;
         this.authorName = authorName;
         this.categories = categories;
@@ -48,16 +56,32 @@ public class AnimesDTO {
         this.animeName = animeName;
     }
 
-    public Author getAuthor() {
+    public Instant getDateBegin() {
+        return dateBegin;
+    }
+
+    public void setDateBegin(Instant dateBegin) {
+        this.dateBegin = dateBegin;
+    }
+
+    public Instant getDateEnd() {
+        return dateEnd;
+    }
+
+    public void setDateEnd(Instant dateEnd) {
+        this.dateEnd = dateEnd;
+    }
+
+    public AuthorDTO getAuthor() {
         return author;
     }
 
-    public void setAuthor(Author author) {
+    public void setAuthor(AuthorDTO author) {
         this.author = author;
     }
 
     public String getAuthorName() {
-        return authorName;
+        return this.author.getFirstName() + " " + this.author.getLastName();
     }
 
     public void setAuthorName(String authorName) {
