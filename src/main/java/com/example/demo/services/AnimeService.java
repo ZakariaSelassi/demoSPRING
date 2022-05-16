@@ -39,11 +39,9 @@ public class AnimeService {
     }
 
 
-    public AnimesDTO save(AnimesDTO anime, int authorID, int seasonsNum){
-        SeasonsDTO seasonsId =seasonsMapper.convertToDTO(seasonsRepository.findById(seasonsNum).orElse(null));
+    public AnimesDTO save(AnimesDTO anime, int authorID){
         AuthorDTO authorWithID = authorMapper.convertToDTO(authorRepository.findById(authorID).orElse(null));
         anime.setAuthor(authorWithID);
-        anime.setSeasons((List<SeasonsDTO>) seasonsId);
        return animesMapper.convertToDTO(animesRepository.save(animesMapper.convertToEntity(anime)));
     }
 

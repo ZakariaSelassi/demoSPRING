@@ -1,18 +1,17 @@
 package com.example.demo.model.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UsersDTO {
     private int id;
     private String name;
 
-    private List<RatingDTO> ratings;
 
     public UsersDTO(){}
-    public UsersDTO(int id, String name, List<RatingDTO> ratings) {
+    public UsersDTO(int id, String name) {
         this.id = id;
         this.name = name;
-        this.ratings = ratings;
     }
 
     public int getId() {
@@ -31,11 +30,4 @@ public class UsersDTO {
         this.name = name;
     }
 
-    public List<RatingDTO> getRatings() {
-        return ratings;
-    }
-
-    public void setRatings(List<RatingDTO> ratings) {
-        this.ratings = ratings;
-    }
 }

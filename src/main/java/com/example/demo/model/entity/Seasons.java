@@ -18,7 +18,7 @@ public class Seasons {
     @Value("${some.key:1}")
     private int seasonsNumber;
 
-    @ManyToOne()
+    @ManyToOne(fetch = FetchType.LAZY)
     private Animes anime;
 
     @OneToMany(mappedBy = "seasons")

@@ -29,10 +29,10 @@ public class Animes {
     @ManyToOne()
     private Author author;
 
-    @OneToMany(mappedBy = "anime")
+    @OneToMany(mappedBy = "anime",  fetch = FetchType.LAZY)
     private List<Seasons> seasonsList = new ArrayList<>();
 
-    @OneToMany(mappedBy = "animeRating")
+    @OneToMany(mappedBy = "animeRating", fetch = FetchType.LAZY)
     private List<Rating> ratingList = new ArrayList<>();
 
     @ElementCollection(targetClass = Category.class)

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class AnimesMapper {
@@ -27,7 +28,8 @@ public class AnimesMapper {
        dto.setDateEnd(animes.getDateEnd());
        dto.setAuthor(authorMapper.convertToDTO(animes.getAuthor()));
        dto.setCategories(animes.getCategorySet());
-       dto.setSeasons((List<SeasonsDTO>) seasonsMapper.convertToDTO((Seasons) animes.getSeasonsList()));
+       dto.setSeasons(animes.getSeasonsList().stream().map(seasonsMapper::convertToDTO).collect(Collectors.toList()));
+
        List<RatingDTO> rat = new ArrayList<>();
        dto.setRatings(rat);
        return dto;
@@ -43,7 +45,7 @@ public class AnimesMapper {
         entity.setDateBegin(animesDTO.getDateBegin());
         entity.setDateEnd(animesDTO.getDateEnd());
         entity.setAuthor(authorMapper.convertToEntity(animesDTO.getAuthor()));
-        entity.setSeasonsList((List<Seasons>) authorMapper.convertToEntity((AuthorDTO) animesDTO.getSeasons()));
+        entity.setSeasonsList(animesDTO.getSeasons().stream().map(seasonsMapper::convertToEntity).collect(Collectors.toList()));
         entity.setCategorySet(animesDTO.getCategories());
 
         return entity;

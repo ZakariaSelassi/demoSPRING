@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.Column;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -22,9 +24,9 @@ public class AnimesDTO {
 
     private String authorName;
 
-    private Set<Category> categories;
-    private List<SeasonsDTO> seasons;
-    private List<RatingDTO> ratings;
+    private Set<Category> categories = new HashSet<>();
+    private List<SeasonsDTO> seasons = new ArrayList<>();
+    private List<RatingDTO> ratings = new ArrayList<>();
 
     public AnimesDTO(){}
 

@@ -1,6 +1,6 @@
 package com.example.demo.model.dto;
 
-import javax.persistence.Column;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SeasonsDTO {
@@ -8,17 +8,17 @@ public class SeasonsDTO {
     private int idSeasons;
     private int seasonsNumber;
 
-    private List<EpisodesDTO> episodes;
+    private List<EpisodesDTO> episodes = new ArrayList<>();
 
 
     public SeasonsDTO(){}
 
-    public SeasonsDTO(int idSeasons, int seasonsNumber, List<EpisodesDTO> episodes) {
+    public SeasonsDTO(int idSeasons, int seasonsNumber, AnimesDTO animes, List<EpisodesDTO> episodes) {
         this.idSeasons = idSeasons;
         this.seasonsNumber = seasonsNumber;
+
         this.episodes = episodes;
     }
-
     public int getIdSeasons() {
         return idSeasons;
     }

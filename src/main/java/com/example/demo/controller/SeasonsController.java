@@ -21,9 +21,10 @@ public class SeasonsController {
         return seasonsService.findAll();
     }
 
-    @PostMapping
-    public SeasonsDTO save(@RequestBody SeasonsDTO seasonsDTO){
-        return seasonsService.save(seasonsDTO);
+    @PostMapping("{animeID}")
+    public SeasonsDTO save(@RequestBody SeasonsDTO seasonsDTO, @PathVariable int animeID){
+        System.out.println("from postman season : " + animeID);
+        return seasonsService.save(seasonsDTO,animeID);
     }
 
 

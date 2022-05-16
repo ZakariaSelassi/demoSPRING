@@ -24,9 +24,9 @@ public class AnimesController {
         return animes;
     }
 
-    @PostMapping
-    public AnimesDTO save(@RequestBody AnimesDTO animesDTO, @RequestParam MultiValueMap <int , int> authorId,seasonsId){
+    @PostMapping("{authorId}")
+    public AnimesDTO save(@RequestBody AnimesDTO animesDTO,@PathVariable int authorId){
         System.out.println("From postman : " +  animesDTO.getAuthor());
-        return animeService.save(animesDTO,authorId,seasonsId);
+        return animeService.save(animesDTO,authorId);
     }
 }
