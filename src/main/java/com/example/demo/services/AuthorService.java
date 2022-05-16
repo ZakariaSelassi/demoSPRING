@@ -28,4 +28,10 @@ public class AuthorService {
         return authorMapper.convertToDTO(
                 authorRepository.save(authorMapper.convertToEntity(authorDTO)));
     }
+
+    public String delete(int id){
+
+        authorRepository.deleteById(id);
+        return "delete author !";
+    }
 }

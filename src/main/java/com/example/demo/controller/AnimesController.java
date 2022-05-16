@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/animes")
+
 public class AnimesController {
     @Autowired
     private AnimesRepository animesRepository;
